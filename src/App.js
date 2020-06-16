@@ -4,7 +4,6 @@ import Geocode from "react-geocode";
 import MapComponent from "./components/maps";
 Geocode.setApiKey("AIzaSyDADM9II6LJh8_dsIM21Jb0_9tpAiFTBDQ");
 Geocode.enableDebug();
-
 export default class MapContainer extends Component {
   constructor(props) {
     super(props);
