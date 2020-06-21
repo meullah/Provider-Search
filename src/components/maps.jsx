@@ -17,7 +17,8 @@ class MapComponent extends Component {
       longitude: 72.937198,
     };
   }
-  componentWillMount() {
+  componentDidMount() {
+    console.log("markersLocation from app", this.props.location);
     let self = this;
     navigator.geolocation.getCurrentPosition(
       function (position) {
@@ -32,32 +33,11 @@ class MapComponent extends Component {
         console.error("Error Code = " + error.code + " - " + error.message);
       }
     );
-
-    // this.getGeoLocation(["islamabad", "faizabad", "Karachi company islamabd"]);
-    // console.log("markers Location", this.state.markersLocation);
   }
 
-  // getGeoLocation(Address_names) {
-  //   let temp = this.state.markersLocation;
-  //   console.log("in geo getGeoLocation, names = ", Address_names);
-  //   var name;
-  //   for (name of Address_names) {
-  //     console.log("Name is ", name);
-  //     Geocode.fromAddress(name).then(
-  //       (response) => {
-  //         const { lat, lng } = response.results[0].geometry.location;
-  //         temp.push({ latitude: lat, longitude: lng });
-  //         console.log(lat, lng);
-  //       },
-  //       (error) => {
-  //         console.error(error);
-  //       }
-  //     );
-
-  //     this.setState({ markersLocation: temp });
-  //   }
-  // }
   displayMarkers = () => {
+    console.log("in Display marker function");
+
     return this.props.location.map((loc, index) => {
       console.log("aaaaaaaaaaaaaaahhhh: ", loc);
       return (
