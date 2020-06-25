@@ -3,22 +3,22 @@ import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import SearchIcon from "@material-ui/icons/Search";
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   froot: {
     "& .MuiTextField-root": {
-      margin: theme.spacing(1)
-    }
+      margin: theme.spacing(1),
+    },
   },
   root: {
     "& .MuiOutlinedInput-root": {
       "& fieldset": {
-        borderRadius: `8px`
-      }
-    }
-  }
+        borderRadius: `8px`,
+      },
+    },
+  },
 }));
 
-const CustTextFields = () => {
+const CustTextFields = (props) => {
   const classes = useStyles();
   return (
     <form className={classes.froot} noValidate autoComplete="off">
@@ -34,8 +34,9 @@ const CustTextFields = () => {
             <InputAdornment position="end">
               <SearchIcon />
             </InputAdornment>
-          )
+          ),
         }}
+        onChange={props.func_nameChanged}
       />
     </form>
   );

@@ -4,11 +4,11 @@ import Slider from "@material-ui/core/Slider";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     width: "auto",
-    padding: 24
-  }
+    padding: 24,
+  },
   // margin: {
   //   height: theme.spacing(1)
   // }
@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
 const PrettoSlider = withStyles({
   root: {
     color: "#a2df77",
-    height: 8
+    height: 8,
   },
   thumb: {
     height: 24,
@@ -27,26 +27,33 @@ const PrettoSlider = withStyles({
     marginTop: -8,
     marginLeft: -12,
     "&:focus,&:hover,&$active": {
-      boxShadow: "inherit"
-    }
+      boxShadow: "inherit",
+    },
   },
   active: {},
   valueLabel: {
-    left: "calc(-50% + 4px)"
+    left: "calc(-50% + 4px)",
   },
   track: {
     height: 8,
-    borderRadius: 4
+    borderRadius: 4,
   },
   rail: {
     height: 8,
-    borderRadius: 4
-  }
+    borderRadius: 4,
+  },
 })(Slider);
 
-const CustomSlider = ({ label1, label2, points }) => {
+const CustomSlider = ({
+  label1,
+  label2,
+  currentPosition,
+  maxValue,
+  minValue,
+  marks,
+}) => {
   const classes = useStyles();
-  const [value, setValue] = React.useState(points);
+  const [value, setValue] = React.useState(currentPosition);
 
   return (
     <div className={classes.root}>
@@ -67,10 +74,13 @@ const CustomSlider = ({ label1, label2, points }) => {
       <PrettoSlider
         valueLabelDisplay="auto"
         // defaultValue={80}
+        max={maxValue}
+        min={minValue}
         value={value}
         onChange={(event, v) => {
           setValue(v);
         }}
+        marks={marks}
       />
     </div>
   );
