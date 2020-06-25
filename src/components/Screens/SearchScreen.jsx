@@ -10,6 +10,9 @@ import Box from "@material-ui/core/Box";
 
 const SearchScreen = () => {
   const [name, setName] = useState(null);
+  const [price, setPrice] = useState([600, 750]);
+  const [distance, setDistance] = useState(5);
+  const [ranking, setRanking] = useState(1);
   const myMarks = [
     {
       value: 0,
@@ -27,8 +30,20 @@ const SearchScreen = () => {
   const nameChanged = (handle) => {
     setName(handle.target.value);
   };
+  const priceChanged = (handle, value) => {
+    setPrice(value);
+  };
+  const distanceChanged = (handle, value) => {
+    setDistance(value);
+  };
+  const rankingChanged = (handle, value) => {
+    setRanking(value);
+  };
   {
     console.log(name);
+    console.log(price);
+    console.log(distance);
+    console.log(ranking);
   }
   return (
     <div style={{ marginTop: "12%" }}>
@@ -68,6 +83,8 @@ const SearchScreen = () => {
             currentPosition={[600, 750]}
             maxValue={1000}
             minValue={500}
+            func={priceChanged}
+            // value={price}
           />
         </Grid>
 
@@ -79,6 +96,8 @@ const SearchScreen = () => {
             currentPosition={5}
             minValue={0}
             maxValue={5}
+            func={distanceChanged}
+            // value={distance}
           />
         </Grid>
         <Grid item xs={12} md={4}>
@@ -89,6 +108,8 @@ const SearchScreen = () => {
             minValue={0}
             maxValue={2}
             marks={myMarks}
+            func={rankingChanged}
+            // value={distance}
           />
         </Grid>
         <Grid item xs={12} style={{ textAlign: "center" }}>

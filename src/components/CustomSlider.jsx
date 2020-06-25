@@ -51,6 +51,7 @@ const CustomSlider = ({
   maxValue,
   minValue,
   marks,
+  func,
 }) => {
   const classes = useStyles();
   const [value, setValue] = React.useState(currentPosition);
@@ -79,6 +80,7 @@ const CustomSlider = ({
         value={value}
         onChange={(event, v) => {
           setValue(v);
+          func(event, v);
         }}
         marks={marks}
       />
