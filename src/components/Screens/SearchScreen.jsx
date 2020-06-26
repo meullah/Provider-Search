@@ -7,6 +7,7 @@ import CustomButton from "../CustomButton";
 import CustTextFields from "../CustTextFields";
 import CustSelect from "../CustSelect";
 import Box from "@material-ui/core/Box";
+// import { BrowserRouter as Router, Link } from "react-router-dom";
 
 const SearchScreen = () => {
   const [name, setName] = useState(null);
@@ -39,6 +40,7 @@ const SearchScreen = () => {
   const rankingChanged = (handle, value) => {
     setRanking(value);
   };
+  const buttonClicked = () => {};
   {
     console.log(name);
     console.log(price);
@@ -113,7 +115,11 @@ const SearchScreen = () => {
           />
         </Grid>
         <Grid item xs={12} style={{ textAlign: "center" }}>
-          <CustomButton text="Search" />
+          <CustomButton
+            text="Search"
+            func={buttonClicked}
+            path="/searchDoctor"
+          />
         </Grid>
       </Grid>
     </div>
