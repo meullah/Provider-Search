@@ -1,13 +1,10 @@
 import React, { useState } from "react";
-// import CssBaseline from "@material-ui/core/CssBaseline";
-// import { makeStyles } from "@material-ui/core/styles";
 import { Grid, Typography } from "@material-ui/core";
 import CustomSlider from "../CustomSlider";
 import CustomButton from "../CustomButton";
 import CustTextFields from "../CustTextFields";
 import CustSelect from "../CustSelect";
 import Box from "@material-ui/core/Box";
-// import { BrowserRouter as Router, Link } from "react-router-dom";
 
 const SearchScreen = () => {
   const [name, setName] = useState(null);
@@ -125,5 +122,4 @@ const SearchScreen = () => {
     </div>
   );
 };
-
 export default SearchScreen;
